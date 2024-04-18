@@ -1,0 +1,23 @@
+'use client';
+
+import React from 'react';
+import { TypeAnimation } from 'react-type-animation';
+
+export const TypeIntro = () => {
+  return (
+    <TypeAnimation
+      className={'text-2xl md:text-5xl font-semibold text-[#00d8ff]'}
+      sequence={[
+        500,
+        'JS/TS',
+        2000,
+        'Vue/Nuxt',
+        2000,
+        'React/Next 和 Nest',
+        5000,
+      ]}
+      speed={10}
+      repeat={Infinity}
+    />
+  );
+};

@@ -1,0 +1,3 @@
+youngjeff.cn {
+	reverse_proxy * localhost:3000
+}
