@@ -128,6 +128,10 @@ docker-compose up -d
 # DATABASE_URL 格式为 mysql://用户名:用户密码@数据库IP:数据库端口/需要连接的数据库名
 # 根据实际情况进行修改
 DATABASE_URL="mysql://root:123456@127.0.0.1:3306/blog2.0"
+
+# 根据实际情况进行修改
+REDIS_HOST="127.0.0.1"
+REDIS_PORT="6379"
 ```
 
 #### 配置 `.env.development` 文件
