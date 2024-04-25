@@ -19,7 +19,7 @@ type BlogDetailProps = {
 export const BlogDetailPage = ({ blog, uv = 0 }: BlogDetailProps) => {
   return (
     <div className="md:max-w-screen-md 2xl:max-w-6xl md:px-0 md:mx-auto py-12 md:py-24 grid gap-9 px-6">
-      <article>
+      <article className="max-w-[678px] mx-auto overflow-hidden w-full break-all">
         {blog.cover && (
           <img
             src={blog.cover}
@@ -42,15 +42,16 @@ export const BlogDetailPage = ({ blog, uv = 0 }: BlogDetailProps) => {
         </div>
         <BytemdViewer body={blog.body || ''} />
       </article>
-
-      <div className="flex flex-wrap gap-2">
-        {blog.tags?.map((el) => (
-          <Badge key={el.id} className="md:px-5 md:py-2 md:text-base">
-            {el.name}
-          </Badge>
-        ))}
+      <div className="max-w-[678px] mx-auto w-full pl-6">
+        <div className="flex flex-wrap gap-2">
+          {blog.tags?.map((el) => (
+            <Badge key={el.id} className="md:px-5 md:py-2 md:text-base">
+              {el.name}
+            </Badge>
+          ))}
+        </div>
+        <GoBack />
       </div>
-      <GoBack />
       <BlogEventTracking blogID={blog.id} />
     </div>
   );
