@@ -15,6 +15,7 @@ import { NextLink } from '@/components/next-link';
 import { PATHS } from '@/constants';
 
 import { signinWithGithub } from '../actions/signin';
+import { SignWithWallet } from '../components/sign-with-wallet';
 
 export const SignInPage = () => {
   return (
@@ -36,7 +37,7 @@ export const SignInPage = () => {
             >
               <IconBarandGithub className="mr-2 text-base" /> 使用 Github 登录
             </Button>
-            {/* <div className="relative">
+            <div className="relative">
               <div className="absolute inset-0 flex items-center">
                 <span className="w-full border-t" />
               </div>
@@ -45,7 +46,8 @@ export const SignInPage = () => {
                   或者
                 </span>
               </div>
-            </div> */}
+            </div>
+            <SignWithWallet />
             {/* <Button
               variant="default"
               className="!w-full !cursor-not-allowed"

@@ -291,7 +291,7 @@ export const AdminSnippetListPage = ({ session }: WithSession) => {
             });
           }}
         />
-        {isAdmin(session?.user?.email) && (
+        {isAdmin(session?.user?.email, session?.user?.id) && (
           <Select
             onValueChange={(v: PUBLISHED_ENUM) =>
               updateInputParams({

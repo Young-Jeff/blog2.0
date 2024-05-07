@@ -2,7 +2,7 @@ import React from 'react';
 
 import { type Metadata } from 'next';
 
-import { NextThemeProvider } from '@/providers';
+import { NextThemeProvider,WagmiProvider } from '@/providers';
 
 import { ReactHotToaster } from '@/components/ui/toast';
 import { TooltipProvider } from '@/components/ui/tooltip';
@@ -30,14 +30,17 @@ export default function RootLayout({ children }: React.PropsWithChildren) {
       </head>
       <body className="debug-screens scroll-smooth overflow-x-clip">
         <TooltipProvider>
+          
           <NextThemeProvider attribute="class">
-            {children}
+            <WagmiProvider>
+              {children}
 
-            <ReactHotToaster />
+              <ReactHotToaster />
 
-            <Console />
+              <Console />
 
-            <Fingerprint />
+              <Fingerprint />
+            </WagmiProvider>
           </NextThemeProvider>
         </TooltipProvider>
       </body>

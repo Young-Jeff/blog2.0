@@ -17,7 +17,7 @@ import { isAdmin } from '@/lib/utils';
 import { Sidebar } from './sidebar';
 
 const Desc = ({ session }: { session: Session | null }) => {
-  return isAdmin(session?.user?.email) ? (
+  return isAdmin(session?.user?.email, session?.user?.id) ? (
     <div className="flex justify-center flex-col items-center space-y-1">
       <Badge className="bg-background text-foreground">管理员</Badge>
       <div className="text-xs text-muted-foreground font-medium">
@@ -38,7 +38,7 @@ export const Sidenav = async () => {
   const session = await auth();
   return (
     <aside className="w-16 lg:w-[256px] transition-all h-screen flex-col flex items-center justify-between py-12 bg-foreground">
-      <div className="flex-col flex items-center">
+      <div className="flex-col flex items-center w-full">
         <Avatar className="w-14 h-14 border border-muted-foreground/10">
           <AvatarImage
             src={session?.user?.image ?? ''}
@@ -46,7 +46,7 @@ export const Sidenav = async () => {
           />
           <AvatarFallback>{PLACEHODER_TEXT}</AvatarFallback>
         </Avatar>
-        <h4 className="hidden lg:block text-lg font-semibold tracking-tight mt-2 text-primary-foreground">
+        <h4 className="hidden lg:block text-lg font-semibold tracking-tight mt-2 text-primary-foreground w-[80%] text-ellipsis line-clamp-1">
           {session?.user?.name ?? PLACEHODER_TEXT}
         </h4>
         <Desc session={session} />

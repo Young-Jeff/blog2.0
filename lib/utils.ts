@@ -7,7 +7,7 @@ import { twMerge } from 'tailwind-merge';
 
 import { showErrorToast, showSuccessToast } from '@/components/ui/toast';
 
-import { ADMIN_EMAILS } from '@/constants';
+import { ADMIN_EMAILS, WALLET_ADDRESS } from '@/constants';
 
 dayjs.extend(relativeTime);
 
@@ -65,11 +65,11 @@ export const toSlashDateString = (date: number | Date) => {
   return dayjs(date).locale('zh-cn').format('YYYY年M月D日 dddd HH:mm:ss');
 };
 
-export const isAdmin = (email?: string | null) => {
-  if (!email || !ADMIN_EMAILS?.length) {
+export const isAdmin = (email: string, id: string) => {
+  if ((!email || !ADMIN_EMAILS?.length) && (!id || !WALLET_ADDRESS?.length)) {
     return false;
   }
-  return ADMIN_EMAILS.includes(email);
+  return ADMIN_EMAILS?.includes(email) || WALLET_ADDRESS?.includes(id);
 };
 
 export const isBrowser = () => {

@@ -2,7 +2,7 @@
 
 import { hashSync } from 'bcryptjs';
 
-import { ADMIN_EMAILS } from '@/constants';
+import { ADMIN_EMAILS, WALLET_ADDRESS } from '@/constants';
 import { type SignupDTO, signupSchema } from '@/features/auth';
 import { auth } from '@/lib/auth';
 import { prisma } from '@/lib/prisma';
@@ -38,11 +38,17 @@ export const createUser = async (params: SignupDTO) => {
 
 export const noPermission = async () => {
   const session = await auth();
-  // 没有邮箱或者未配置admin邮箱，返回true，无权限
-  if (!session?.user?.email || !ADMIN_EMAILS?.length) {
+  // 没有邮箱或者未配置admin邮箱 且 无钱包地址或者钱包列表，返回true，无权限
+  if (
+    (!session?.user?.email || !ADMIN_EMAILS?.length) &&
+    (!session?.user?.id || !WALLET_ADDRESS?.length)
+  ) {
     return true;
   } else {
     // 如果当前用户邮箱存在admin邮箱中，返回false，说明有权限
-    return !ADMIN_EMAILS.includes(session.user.email);
+    return (
+      (session?.user?.email && !ADMIN_EMAILS?.includes(session?.user?.email)) ||
+      (session.user.id && !WALLET_ADDRESS?.includes(session.user.id))
+    );
   }
 };

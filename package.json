@@ -66,6 +66,7 @@
     "cmdk": "^0.2.0",
     "dayjs": "^1.11.10",
     "dotenv": "^16.3.1",
+    "ethers": "^6.12.1",
     "hast-util-from-html-isomorphic": "^2.0.0",
     "image-type": "^5.2.0",
     "ioredis": "^5.4.1",
@@ -82,9 +83,12 @@
     "react-type-animation": "^3.2.0",
     "read-chunk": "^4.0.3",
     "sharp": "^0.32.2",
+    "siwe": "^2.3.2",
     "slugify": "^1.6.6",
     "tailwindcss-animated": "^1.0.1",
     "unist-util-visit": "^5.0.0",
+    "viem": "2.x",
+    "wagmi": "^2.8.0",
     "zod": "^3.22.4"
   },
   "devDependencies": {

@@ -4,6 +4,8 @@ import { TagTypeEnum } from '@prisma/client';
 export const PLACEHODER_TEXT = 'N/A';
 
 export const ADMIN_EMAILS = process.env.NEXT_PUBLIC_ADMIN_EMAILS?.split(',');
+export const WALLET_ADDRESS =
+  process.env.NEXT_PUBLIC_WALLET_ADDRESS?.split(',');
 
 export const TAG_TYPES = [
   TagTypeEnum.ALL,
