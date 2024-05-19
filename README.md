@@ -35,7 +35,11 @@
 
 - 使用 Prisma 简化数据库 CRUD 操作
 
+- 使用 Redis + ioredis 统计pv/uv
+
 - 使用 Tailwind CSS + shadcn/ui 编写样式和组件
+
+- shadcn/form + react-hook-form + zod 作表单验证
 
 - 使用 iconify 支持各种 svg 图标
 
@@ -45,7 +49,7 @@
 
 - 使用 next-sitemap 生成全站 sitemap ，SEO 友好
 
-- 使用最新的 next-auth v5 支持 Github 登录后台管理
+- 使用最新的 next-auth v5和siwe支持 github + 以太坊钱包登录后台
 
 - 使用 ahooks 提升开发效率
 
