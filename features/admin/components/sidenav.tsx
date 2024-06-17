@@ -46,7 +46,7 @@ export const Sidenav = async () => {
           />
           <AvatarFallback>{PLACEHODER_TEXT}</AvatarFallback>
         </Avatar>
-        <h4 className="hidden lg:block text-lg font-semibold tracking-tight mt-2 text-primary-foreground w-[80%] text-ellipsis line-clamp-1">
+        <h4 className="hidden lg:block text-lg font-semibold tracking-tight mt-2 text-primary-foreground w-[80%] text-ellipsis line-clamp-1 text-center">
           {session?.user?.name ?? PLACEHODER_TEXT}
         </h4>
         <Desc session={session} />

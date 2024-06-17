@@ -14,7 +14,7 @@ export const getStatistics = async () => {
   });
   const tagCount = await prisma.tag.count();
 
-  const snippetCount = await prisma.snippet.count({
+  const projectCount = await prisma.project.count({
     where: { published: true },
   });
 
@@ -22,7 +22,7 @@ export const getStatistics = async () => {
     where: { published: true },
   });
 
-  return { blogCount, snippetCount, tagCount, noteCount };
+  return { blogCount, projectCount, tagCount, noteCount };
 };
 
 export const recordPV = async () => {

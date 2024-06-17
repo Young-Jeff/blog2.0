@@ -4,7 +4,7 @@ export const PATHS = {
   /** ************* SITE ****************** */
   SITE_HOME: '/',
   SITE_BLOG: '/blog',
-  SITE_SNIPPET: '/snippet',
+  SITE_PROJECT: '/project',
   SITE_ABOUT: '/about',
   SITEMAP: '/sitemap.xml',
 
@@ -16,9 +16,9 @@ export const PATHS = {
   ADMIN_BLOG_CREATE: '/admin/blog/create',
   ADMIN_BLOG_EDIT: '/admin/blog/edit',
 
-  ADMIN_SNIPPET: '/admin/snippet',
-  ADMIN_SNIPPET_CREATE: '/admin/snippet/create',
-  ADMIN_SNIPPET_EDIT: '/admin/snippet/edit',
+  ADMIN_PROJECT: '/admin/project',
+  ADMIN_PROJECT_CREATE: '/admin/project/create',
+  ADMIN_PROJECT_EDIT: '/admin/project/edit',
 
   ADMIN_TAG: '/admin/tag',
   ADMIN_NOTE: '/admin/note',
@@ -32,7 +32,7 @@ export const PATHS_MAP: Record<string, string> = {
   /** ************* SITE ****************** */
   [PATHS.SITE_HOME]: '首页',
   [PATHS.SITE_BLOG]: '博客',
-  [PATHS.SITE_SNIPPET]: '片段',
+  [PATHS.SITE_PROJECT]: '项目',
   [PATHS.SITE_ABOUT]: '关于',
   [PATHS.SITEMAP]: '站点地图',
 
@@ -42,9 +42,9 @@ export const PATHS_MAP: Record<string, string> = {
   [PATHS.ADMIN_BLOG]: '博客',
   [PATHS.ADMIN_BLOG_CREATE]: '创建博客',
   [PATHS.ADMIN_BLOG_EDIT]: '编辑博客',
-  [PATHS.ADMIN_SNIPPET]: '片段',
-  [PATHS.ADMIN_SNIPPET_CREATE]: '创建片段',
-  [PATHS.ADMIN_SNIPPET_EDIT]: '编辑片段',
+  [PATHS.ADMIN_PROJECT]: '项目',
+  [PATHS.ADMIN_PROJECT_CREATE]: '创建项目',
+  [PATHS.ADMIN_PROJECT_EDIT]: '编辑项目',
   [PATHS.ADMIN_TAG]: '标签',
   [PATHS.ADMIN_NOTE]: '笔记',
 
@@ -56,7 +56,8 @@ export const PATH_DESCRIPTION_MAP: Record<string, string> = {
   /** ************* SITE ****************** */
   [PATHS.SITE_HOME]: '首页',
   [PATHS.SITE_BLOG]: '这里记录了我的想法、文章，希望和大家一起交流～',
-  [PATHS.SITE_SNIPPET]: '多是一些零零碎碎的片段，通常是代码片段',
+  [PATHS.SITE_PROJECT]:
+    '学而无用，不如学而用之。这里是我在技术领域中努力实践和应用的最佳证明。',
   [PATHS.SITE_ABOUT]: `叮～ 你有一份关于${NICKNAME}的简介，请查收～`,
 
   /** ************* ADMIN ****************** */
@@ -66,10 +67,10 @@ export const PATH_DESCRIPTION_MAP: Record<string, string> = {
   [PATHS.ADMIN_BLOG_CREATE]: '在这里尽情地创作吧！',
   [PATHS.ADMIN_BLOG_EDIT]:
     '世界破破烂烂，博客修修补补，好的文章总是需要反复打磨的',
-  [PATHS.ADMIN_SNIPPET]: `片段管理，在这里对片段进行 增、删、改、查操作`,
-  [PATHS.ADMIN_SNIPPET_CREATE]:
-    'Talk is cheap. Show me the code. From Linus Torvalds',
-  [PATHS.ADMIN_SNIPPET_EDIT]: '修修补补，总比没有好',
+  [PATHS.ADMIN_PROJECT]: `项目管理，在这里对项目进行 增、删、改、查操作`,
+  [PATHS.ADMIN_PROJECT_CREATE]:
+    '学而无用，不如学而用之。这里是我在技术领域中努力实践和应用的最佳证明。',
+  [PATHS.ADMIN_PROJECT_EDIT]: '修修补补，总比没有好',
   [PATHS.ADMIN_TAG]: `标签管理，在这里对标签进行 增、删、改、查操作`,
   [PATHS.ADMIN_NOTE]: '好记性不如烂笔头，灵感一闪',
 

@@ -2,14 +2,20 @@
 
 import React from 'react';
 
+import Link from 'next/link';
+import { useRouter } from 'next/navigation';
+
 import { TagTypeEnum } from '@prisma/client';
 import { type ColumnDef } from '@tanstack/react-table';
 import { useSetState } from 'ahooks';
 import { isUndefined } from 'lodash-es';
 
+import { type WithSession } from '@/types';
+
 import { Badge } from '@/components/ui/badge';
-import { Button } from '@/components/ui/button';
+import { Button, buttonVariants } from '@/components/ui/button';
 import { Checkbox } from '@/components/ui/checkbox';
+import { Combobox } from '@/components/ui/combobox';
 import { DataTable } from '@/components/ui/data-table';
 import { Input } from '@/components/ui/input';
 import {
@@ -22,14 +28,15 @@ import {
 
 import { Highlight } from '@/components/highlight';
 import {
-  IconSolarBook,
+  IconSolarAddSquare,
   IconSolarCalendarMark,
-  IconSolarCodeSquare,
+  IconSolarEyeBold,
   IconSolarMinimalisticMagnifer,
-  IconSolarNotesBold,
+  IconSolarPen,
   IconSolarRestart,
   IconSolarSortFromBottomToTopLinear,
   IconSolarSortFromTopToBottomLinear,
+  IconSolarTag,
   IconSolarTextField,
 } from '@/components/icons';
 import { IllustrationNoContent } from '@/components/illustrations';
@@ -40,21 +47,26 @@ import {
   DEFAULT_PAGE_SIZE,
   PATHS,
   PLACEHODER_TEXT,
-  TAG_TYPES,
-  TAG_TYPE_MAP,
+  PUBLISHED_ENUM,
+  PUBLISHED_LABEL_MAP,
 } from '@/constants';
-import { type GetTagsDTO, type Tag, useGetTags } from '@/features/tag';
-import { cn, toSlashDateString } from '@/lib/utils';
+import {
+  type GetProjectsDTO,
+  type Project,
+  useGetProjects,
+} from '@/features/project';
+import { useGetAllTags } from '@/features/tag';
+import { cn, isAdmin, toSlashDateString } from '@/lib/utils';
 
 import {
   AdminContentLayout,
-  CreateTagButton,
-  DeleteTagButton,
-  EditTagButton,
+  DeleteProjectButton,
+  ToggleProjectPublishSwitch,
 } from '../../components';
 
-export const AdminTagListPage = () => {
-  const [params, updateParams] = useSetState<GetTagsDTO>({
+export const AdminProjectListPage = ({ session }: WithSession) => {
+  const router = useRouter();
+  const [params, updateParams] = useSetState<GetProjectsDTO>({
     pageIndex: DEFAULT_PAGE_INDEX,
     pageSize: DEFAULT_PAGE_SIZE,
     order: 'desc',
@@ -62,19 +74,25 @@ export const AdminTagListPage = () => {
   });
 
   const [inputParams, updateInputParams] = useSetState<
-    Omit<GetTagsDTO, 'pageIndex' | 'pageSize'>
+    Omit<GetProjectsDTO, 'pageIndex' | 'pageSize'>
   >({
-    name: undefined,
-    type: undefined,
+    title: undefined,
+    published: undefined,
+    tags: undefined,
   });
 
-  const getTagsQuery = useGetTags(params);
+  const getProjectsQuery = useGetProjects(params);
   const data = React.useMemo(
-    () => getTagsQuery.data?.tags ?? [],
-    [getTagsQuery],
+    () => getProjectsQuery.data?.projects ?? [],
+    [getProjectsQuery],
   );
 
-  const columns: ColumnDef<Tag>[] = [
+  const getTagsQuery = useGetAllTags(TagTypeEnum.PROJECT);
+  const tags = React.useMemo(() => {
+    return getTagsQuery.data?.tags ?? [];
+  }, [getTagsQuery]);
+
+  const columns: ColumnDef<Project>[] = [
     {
       id: 'select',
       header: ({ table }) => (
@@ -98,86 +116,58 @@ export const AdminTagListPage = () => {
       enableHiding: false,
     },
     {
-      accessorKey: 'name',
+      accessorKey: 'title',
       header: () => (
         <div className="flex space-x-1 items-center">
           <IconSolarTextField className="text-sm" />
-          <span>名称</span>
+          <span>标题</span>
         </div>
       ),
       cell: ({ row }) => {
         return (
           <Highlight
-            sourceString={row.original.name}
-            searchWords={params.name ? [params.name] : undefined}
+            sourceString={row.original.title}
+            searchWords={params.title ? [params.title] : undefined}
           />
         );
       },
     },
     {
-      accessorKey: 'type',
+      accessorKey: 'tags',
       header: () => (
         <div className="flex space-x-1 items-center">
-          <IconSolarTextField className="text-sm" />
-          <span>类型</span>
+          <IconSolarTag className="text-sm" />
+          <span>标签</span>
         </div>
       ),
-      cell({ row }) {
-        const originalType = row.original.type;
-        const typeLabel = TAG_TYPE_MAP[originalType];
-        if (!typeLabel) {
-          return PLACEHODER_TEXT;
-        }
-
-        const iconMap = {
-          [TagTypeEnum.ALL]: '',
-          [TagTypeEnum.BLOG]: <IconSolarBook className="text-sm" />,
-          [TagTypeEnum.NOTE]: <IconSolarNotesBold className="text-sm" />,
-          [TagTypeEnum.PROJECT]: <IconSolarCodeSquare className="text-sm" />,
-        };
-
+      cell: ({ row }) => {
         return (
-          <Badge>
-            {iconMap[originalType]}
-            {typeLabel}
-          </Badge>
+          <div className="flex flex-wrap gap-2">
+            {row.original.tags?.length
+              ? row.original.tags.map((tag) => (
+                  <Badge key={tag.id}>{tag.name}</Badge>
+                ))
+              : PLACEHODER_TEXT}
+          </div>
         );
       },
     },
     {
-      accessorKey: '_count.blogs',
+      accessorKey: 'published',
       header: () => (
         <div className="flex space-x-1 items-center">
-          <IconSolarBook className="text-sm" />
-          <span>博客</span>
+          <IconSolarEyeBold className="text-sm" />
+          <span>发布状态</span>
         </div>
       ),
-      cell({ row }) {
-        return row.original._count.blogs || PLACEHODER_TEXT;
-      },
-    },
-    {
-      accessorKey: '_count.projects',
-      header: () => (
-        <div className="flex space-x-1 items-center">
-          <IconSolarCodeSquare className="text-sm" />
-          <span>项目</span>
-        </div>
-      ),
-      cell({ row }) {
-        return row.original._count.projects || PLACEHODER_TEXT;
-      },
-    },
-    {
-      accessorKey: '_count.notes',
-      header: () => (
-        <div className="flex space-x-1 items-center">
-          <IconSolarNotesBold className="text-sm" />
-          <span>笔记</span>
-        </div>
-      ),
-      cell({ row }) {
-        return row.original._count.projects || PLACEHODER_TEXT;
+      cell: ({ row }) => {
+        return (
+          <ToggleProjectPublishSwitch
+            id={row.original.id}
+            published={row.original.published}
+            refreshAsync={getProjectsQuery.refreshAsync}
+          />
+        );
       },
     },
     {
@@ -229,16 +219,25 @@ export const AdminTagListPage = () => {
     {
       id: 'actions',
       cell: ({ row }) => {
-        const record = row.original;
         return (
           <div className="flex gap-2 items-center">
-            <EditTagButton
-              id={record.id}
-              refreshAsync={getTagsQuery.refreshAsync}
-            />
-            <DeleteTagButton
-              id={record.id}
-              refreshAsync={getTagsQuery.refreshAsync}
+            <Link
+              className={cn(buttonVariants({ variant: 'ghost', size: 'icon' }))}
+              href={`${PATHS.SITE_PROJECT}/${row.original.slug}`}
+              target="_blank"
+            >
+              <IconSolarEyeBold className="text-base" />
+            </Link>
+            <Button
+              size={'icon'}
+              variant="ghost"
+              onClick={() => handleGoToEdit(row.original.id)}
+            >
+              <IconSolarPen className="text-base" />
+            </Button>
+            <DeleteProjectButton
+              id={row.original.id}
+              refreshAsync={getProjectsQuery.refreshAsync}
             />
           </div>
         );
@@ -250,18 +249,23 @@ export const AdminTagListPage = () => {
     <AdminContentLayout
       pageHeader={
         <PageHeader
-          breadcrumbList={[PATHS.ADMIN_HOME, PATHS.ADMIN_TAG]}
-          action={<CreateTagButton refreshAsync={getTagsQuery.refreshAsync} />}
+          breadcrumbList={[PATHS.ADMIN_HOME, PATHS.ADMIN_PROJECT]}
+          action={
+            <Button onClick={handleGoToCreate}>
+              <IconSolarAddSquare className="mr-2 text-base" />
+              创建项目
+            </Button>
+          }
         />
       }
     >
-      <div className="grid gap-4 grid-cols-4 px-2 py-4">
+      <div className="grid gap-4 grid-cols-4 px-2 py-4 items-end">
         <Input
-          placeholder="请输入名称"
-          value={inputParams.name}
+          placeholder="请输入标题"
+          value={inputParams.title}
           onChange={(v) =>
             updateInputParams({
-              name: v.target.value,
+              title: v.target.value,
             })
           }
           onKeyUp={(e) => {
@@ -270,29 +274,52 @@ export const AdminTagListPage = () => {
             }
           }}
         />
-        <Select
-          onValueChange={(v: TagTypeEnum) =>
-            updateInputParams({
-              type: v,
-            })
+        <Combobox
+          options={
+            tags?.map((el) => ({
+              label: el.name,
+              value: el.id,
+            })) ?? []
           }
-          value={inputParams.type}
-        >
-          <SelectTrigger
-            className={cn({
-              'text-muted-foreground': isUndefined(inputParams.type),
-            })}
+          multiple
+          clearable
+          selectPlaceholder="请选择标签"
+          value={inputParams.tags}
+          onValueChange={(v) => {
+            updateInputParams({
+              tags: v,
+            });
+          }}
+        />
+        {isAdmin(session?.user?.email, session?.user?.id) && (
+          <Select
+            onValueChange={(v: PUBLISHED_ENUM) =>
+              updateInputParams({
+                published: v,
+              })
+            }
+            value={inputParams.published}
           >
-            <SelectValue placeholder="请选择类型" />
-          </SelectTrigger>
-          <SelectContent>
-            {TAG_TYPES.map((el) => (
-              <SelectItem key={el} value={el}>
-                {TAG_TYPE_MAP[el]}
+            <SelectTrigger
+              className={cn({
+                'text-muted-foreground': isUndefined(inputParams.published),
+              })}
+            >
+              <SelectValue placeholder="请选择发布状态" />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value={PUBLISHED_ENUM.ALL}>
+                {PUBLISHED_LABEL_MAP[PUBLISHED_ENUM.ALL]}
               </SelectItem>
-            ))}
-          </SelectContent>
-        </Select>
+              <SelectItem value={PUBLISHED_ENUM.PUBLISHED}>
+                {PUBLISHED_LABEL_MAP[PUBLISHED_ENUM.PUBLISHED]}
+              </SelectItem>
+              <SelectItem value={PUBLISHED_ENUM.NO_PUBLISHED}>
+                {PUBLISHED_LABEL_MAP[PUBLISHED_ENUM.NO_PUBLISHED]}
+              </SelectItem>
+            </SelectContent>
+          </Select>
+        )}
         <div className="flex items-center space-x-4">
           <Button onClick={handleSearch}>
             <IconSolarMinimalisticMagnifer className="mr-2" />
@@ -304,18 +331,19 @@ export const AdminTagListPage = () => {
           </Button>
         </div>
       </div>
+
       <DataTable
         columns={columns}
         data={data}
-        total={getTagsQuery.data?.total}
-        loading={getTagsQuery.loading}
+        total={getProjectsQuery.data?.total}
+        loading={getProjectsQuery.loading}
         params={{ ...params }}
         updateParams={updateParams}
         noResult={
           <div className="grid place-content-center gap-4 py-16">
             <IllustrationNoContent />
             <p>暂无内容</p>
-            <CreateTagButton refreshAsync={getTagsQuery.refreshAsync} />
+            <Button onClick={handleGoToCreate}>去创建</Button>
           </div>
         }
       />
@@ -324,26 +352,29 @@ export const AdminTagListPage = () => {
 
   function handleSearch() {
     updateParams({
-      name: inputParams.name,
-      type: inputParams.type,
+      title: inputParams.title,
+      published: inputParams.published,
+      tags: inputParams.tags,
     });
   }
 
   function handleReset() {
     updateInputParams({
-      name: '',
-      type: undefined,
+      title: '',
+      tags: undefined,
+      published: undefined,
     });
     updateParams({
-      name: '',
-      type: undefined,
+      title: '',
+      tags: undefined,
+      published: undefined,
       pageIndex: DEFAULT_PAGE_INDEX,
       order: 'desc',
       orderBy: 'createdAt',
     });
   }
 
-  function handleOrderChange(orderBy: GetTagsDTO['orderBy']) {
+  function handleOrderChange(orderBy: GetProjectsDTO['orderBy']) {
     updateParams((prev) => {
       if (prev.orderBy !== orderBy) {
         return { orderBy: orderBy, order: 'asc' };
@@ -357,5 +388,13 @@ export const AdminTagListPage = () => {
         }
       }
     });
+  }
+
+  function handleGoToCreate() {
+    router.push(PATHS.ADMIN_PROJECT_CREATE);
+  }
+
+  function handleGoToEdit(id: string) {
+    router.push(`${PATHS.ADMIN_PROJECT_EDIT}/${id}`);
   }
 };

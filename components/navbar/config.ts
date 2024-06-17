@@ -14,6 +14,10 @@ export const navItems: Array<{
     link: PATHS.SITE_BLOG,
   },
   {
+    label: PATHS_MAP[PATHS.SITE_PROJECT],
+    link: PATHS.SITE_PROJECT,
+  },
+  {
     label: PATHS_MAP[PATHS.SITE_ABOUT],
     link: PATHS.SITE_ABOUT,
   },

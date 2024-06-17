@@ -11,14 +11,14 @@ export const TAG_TYPES = [
   TagTypeEnum.ALL,
   TagTypeEnum.BLOG,
   TagTypeEnum.NOTE,
-  TagTypeEnum.SNIPPET,
+  TagTypeEnum.PROJECT,
 ];
 
 export const TAG_TYPE_MAP = {
   [TagTypeEnum.ALL]: '通用',
   [TagTypeEnum.BLOG]: '博客',
   [TagTypeEnum.NOTE]: '笔记',
-  [TagTypeEnum.SNIPPET]: '片段',
+  [TagTypeEnum.PROJECT]: '项目',
 };
 
 export enum PUBLISHED_ENUM {
