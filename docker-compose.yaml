@@ -6,12 +6,12 @@ services:
       # 添加到SYS NICE的上限会抑制一些没用的错误消息
       - SYS_NICE
     # 要求docker-compose在失败时总是重新启动这个容器
-    # restart: always
+    restart: always
     environment:
       # 方法一：设置时区为上海
-      - TZ=Asia/shenzhen
+      - TZ=Asia/Shanghai
       # - SET_CONTAINER_TIMEZONE=true # 方法二： 设置时区为上海
-      # - CONTAINER_TIMEZONE=Asia/shenzhen # 方法二： 设置时区为上海
+      # - CONTAINER_TIMEZONE=Asia/Shanghai # 方法二： 设置时区为上海
       # mysql启动时自动创建数据库
       - MYSQL_DATABASE=blog
       # 设置root账户密码
@@ -31,7 +31,19 @@ services:
       ]
     networks:
       - my_network
-
+  redis:
+    image: redis:latest
+    restart: unless-stopped
+    ports:
+      - '6379:6379'
+    environment:
+      - REDIS_PASSWORD=123456
+    # 上面配置的密码
+    # command: redis-server --requirepass 123456
+    volumes:
+      - /Users/feng/code:/data
+    networks:
+      - my_network
 networks:
   my_network:
     driver: bridge
