@@ -31,7 +31,7 @@ export const ProjectListItem = ({ project }: ProjectListItemProps) => {
         <div className="flex justify-between items-center">
           <Tooltip>
             <TooltipTrigger asChild>
-              <h3 className="text-lg md:text-2xl font-semibold line-clamp-1 text-[#38bdf8]">
+              <div className="text-lg font-semibold line-clamp-1 text-[#38bdf8] underline">
                 {project.previewUrl ? (
                   <Link target="_blank" href={project.previewUrl}>
                     {project.title}
@@ -39,20 +39,20 @@ export const ProjectListItem = ({ project }: ProjectListItemProps) => {
                 ) : (
                   project.title
                 )}
-              </h3>
+              </div>
             </TooltipTrigger>
             <TooltipContent>{project.title}</TooltipContent>
           </Tooltip>
           <a
             target="_blank"
             href={project.codeUrl}
-            className="bg-gray-100 hover:bg-gray-200 cursor-pointer w-14 h-8 flex justify-center items-center rounded-md font-bold text-sm"
+            className="bg-gray-100 hover:bg-gray-200 cursor-pointer w-14 h-6 flex justify-center items-center rounded-md font-bold text-xs"
             rel="noreferrer"
           >
             源码
           </a>
         </div>
-        <p className="my-2 line-clamp-3 overflow-ellipsis text-sm">
+        <p className="my-2 line-clamp-3 overflow-ellipsis text-xs">
           {project.description}
         </p>
         <div className="flex flex-row gap-2">
