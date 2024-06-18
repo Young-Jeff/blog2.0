@@ -28,16 +28,15 @@ export async function GET() {
     return {
       loc: `${SITE_URL}${PATHS.SITE_BLOG}/${item.slug}`,
       lastmod: new Date(item.updatedAt ?? item.createdAt).toISOString(),
-      changefreq: 'hourly',
+      changefreq: 'monthly',
     };
   });
   const projectsSitemaps = projects.map((item): ISitemapField => {
     return {
       loc: `${SITE_URL}${PATHS.SITE_PROJECT}/${item.slug}`,
       lastmod: new Date(item.updatedAt ?? item.createdAt).toISOString(),
-      changefreq: 'hourly',
+      changefreq: 'monthly',
     };
   });
-
   return getServerSideSitemap([...blogsSitemaps, ...projectsSitemaps]);
 }
