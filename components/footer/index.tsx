@@ -20,7 +20,7 @@ export const Footer = async () => {
 
   return (
     <footer className="w-full flex flex-col py-8 max-w-screen-xl mx-auto text-muted-foreground">
-      <ul className="flex space-x-2 items-center justify-center">
+      <ul className="flex space-x-2 items-center justify-center flex-wrap">
         {navItems.map((el, idx) => (
           <li key={el.link}>
             {Boolean(idx) && <span className="mr-2">·</span>}

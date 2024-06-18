@@ -52,7 +52,7 @@ export const ProjectListItem = ({ project }: ProjectListItemProps) => {
             源码
           </a>
         </div>
-        <p className="my-2 line-clamp-3 overflow-ellipsis">
+        <p className="my-2 line-clamp-3 overflow-ellipsis text-sm">
           {project.description}
         </p>
         <div className="flex flex-row gap-2">

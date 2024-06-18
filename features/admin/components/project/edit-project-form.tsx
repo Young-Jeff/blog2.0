@@ -80,6 +80,8 @@ export const EditProjectForm = () => {
     form.setValue('slug', project?.slug ?? '');
     form.setValue('description', project?.description ?? '');
     form.setValue('cover', project?.cover ?? '');
+    form.setValue('codeUrl', project?.codeUrl ?? '');
+    form.setValue('previewUrl', project?.previewUrl ?? '');
     form.setValue('author', project?.author ?? '');
     form.setValue('published', project?.published ?? false);
     form.setValue('tags', project?.tags?.map((el) => el.id) ?? []);

@@ -21,7 +21,7 @@ export const ProjectList = ({ projects }: ProjectListProps) => {
   }
 
   return (
-    <ul className="grid grid-cols-3 2xl:grid-cols-4 gap-4">
+    <ul className="grid grid-cols-1 mx-5 sm:mx-0 sm:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-4">
       {projects.map((el, idx) => (
         <li
           key={el.id}
