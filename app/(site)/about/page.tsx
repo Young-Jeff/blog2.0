@@ -5,7 +5,6 @@ import { Button } from '@/components/ui/button';
 import {
   IconBarandGithub,
   IconLogoEthereum,
-  IconLogoEthers,
   IconLogoGoogle,
   IconLogoHardhat,
   IconLogoSourcetree,
@@ -34,6 +33,12 @@ import {
   IconSkillWindicssDark,
   IconSkillWindicssLight,
 } from '@/components/icons';
+import { IconLogoEth } from '@/components/icons/logos/icon-logo-eth';
+import { IconLogoRedis } from '@/components/icons/logos/icon-logo-redis';
+import { IconLogoSequelize } from '@/components/icons/logos/icon-logo-sequelize';
+import { IconLogoSol } from '@/components/icons/logos/icon-logo-sol';
+import { IconLogoTelegram } from '@/components/icons/logos/icon-logo-telegram';
+import { IconLogoTypeorm } from '@/components/icons/logos/icon-logo-typeorm';
 import { PageHeader } from '@/components/page-header';
 
 import { PATHS } from '@/constants';
@@ -141,16 +146,29 @@ export default function Page() {
           <ul>
             <li>
               <>
-                <IconSkillNestDark className="dark:hidden mx-1 translate-y-0.5" />
-                <IconSkillNestLight className="hidden dark:inline-block mx-1 translate-y-0.5" />
+                <IconSkillNextjsDark className="dark:hidden mx-1 translate-y-0.5" />
+                <IconSkillNextjsLight className="hidden dark:inline-block mx-1 translate-y-0.5" />
               </>
-              Nest.js + <IconSkillPrisma className="mx-1 translate-y-0.5" />
-              Prisma + TypeORM +
+              Next.js + <IconSkillPrisma className="mx-1 translate-y-0.5" />
+              Prisma + <IconLogoTypeorm className="mx-1 translate-y-0.5" />{' '}
+              TypeORM +
               <>
                 <IconSkillMysqlDark className="dark:hidden mx-1 translate-y-0.5" />
                 <IconSkillMysqlLight className="hidden dark:inline-block mx-1 translate-y-0.5" />
               </>
-              MySQL 搞全栈开发
+              MySQL + <IconLogoRedis className="mx-1 translate-y-0.5" /> Redis
+              搞全栈开发
+            </li>
+            <li>
+              <>
+                <IconSkillNestDark className="dark:hidden mx-1 translate-y-0.5" />
+                <IconSkillNestLight className="hidden dark:inline-block mx-1 translate-y-0.5" />
+              </>
+              Nest.js/Express +{' '}
+              <IconSkillPrisma className="mx-1 translate-y-0.5" />
+              Prisma + <IconLogoTypeorm className="mx-1 translate-y-0.5" />{' '}
+              TypeORM + <IconLogoSequelize className="mx-1 translate-y-0.5" />{' '}
+              Sequelize 搞Node开发
             </li>
           </ul>
         </div>
@@ -163,8 +181,17 @@ export default function Page() {
           <h3>web3</h3>
           <ul>
             <li>
-              <IconLogoEthers className="mx-1 translate-y-0.5" />
-              Ethers.js + viem + wagmi + rainbowkit 完成区块链交互
+              <IconLogoEth className="mx-1 translate-y-0.5" />
+              Ethers.js + viem + wagmi + rainbowkit 以太坊生态开发
+            </li>
+            <li>
+              <IconLogoSol className="mx-1 translate-y-1" />
+              @solana/web3.js + @solana/spl-token + @coral-xyz/anchor +
+              @solana/wallet-adapter-wallets solana生态开发
+            </li>
+            <li>
+              <IconLogoTelegram className="mx-1 translate-y-1" />
+              grammy + tg Bot API 开发tg bot + tg Mini Apps
             </li>
             <li>
               <IconSkillSolidity className="mx-1 translate-y-0.5" />
@@ -197,7 +224,7 @@ export default function Page() {
               熟练使用 <IconLogoGoogle className="mx-1 translate-y-0.5" />
               Google +
               <IconBarandGithub className="mx-1 translate-y-1" />
-              GitHub + gpt 解决遇到的各种问题，复制粘贴我最行 🙋
+              GitHub + Cursor + ChatGPT 解决遇到的各种问题 🙋
             </li>
           </ul>
         </div>

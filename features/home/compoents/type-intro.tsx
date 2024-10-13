@@ -9,11 +9,13 @@ export const TypeIntro = () => {
       className={'text-2xl md:text-5xl font-semibold text-[#00d8ff]'}
       sequence={[
         500,
-        'JS/TS',
+        'TypeScript',
         2000,
-        'Vue/Nuxt',
+        'React/Next.js',
         2000,
-        'React/Next 和 Nest',
+        'Vue/Nuxt.js',
+        2000,
+        'Express/Nest.js...',
         5000,
       ]}
       speed={10}
