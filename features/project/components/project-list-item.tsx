@@ -46,7 +46,7 @@ export const ProjectListItem = ({ project }: ProjectListItemProps) => {
           <a
             target="_blank"
             href={project.codeUrl}
-            className="bg-gray-100 hover:bg-gray-200 cursor-pointer w-14 h-6 flex justify-center items-center rounded-md font-bold text-xs"
+            className="bg-gray-100 hover:bg-gray-200 cursor-pointer w-14 h-6 flex justify-center items-center rounded-md font-bold text-xs dark:text-[#333]"
             rel="noreferrer"
           >
             源码
