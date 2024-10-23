@@ -37,7 +37,10 @@ export const Navbar = () => {
       <div className="w-full flex items-center h-16 p-4 sm:p-8 md:max-w-screen-md 2xl:max-w-screen-xl">
         <NextLink
           href={PATHS.SITE_HOME}
-          className={cn('mr-4 hidden sm:flex')}
+          className={cn(
+            'mr-4 hidden sm:flex',
+            'animate-fade-right animate-once animate-duration-500 animate-ease-in-out',
+          )}
           aria-label={NICKNAME}
         >
           <IconLogo />
