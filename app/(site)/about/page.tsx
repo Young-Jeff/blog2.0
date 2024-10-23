@@ -1,6 +1,8 @@
+import Image from 'next/image';
 import Link from 'next/link';
 
 import { Button } from '@/components/ui/button';
+import { Dialog, DialogContent, DialogTrigger } from '@/components/ui/dialog';
 
 import {
   IconBarandGithub,
@@ -68,12 +70,11 @@ export default function Page() {
         >
           <h2>我是谁</h2>
           <p>
-            👨‍💻 一名 95 后前端开发，喜欢学习新技术，不断折腾。
+            👨‍💻 95 后TS全栈开发，热衷于学习新技术，不断探索和创新。
             <br />
-            🐛 目前主攻 ts全栈，和区块链相关技术。
+            🐛 目前专注于Web3和区块链技术，研究如何只工作不上班。
             <br />
-            📖 喜欢阅读，🏋️ 撸铁，养了一条叫 cookie 的小狗
-            🐶，除上班外喜欢一切美好的事物。
+            📖 喜欢阅读，🏋️ 撸铁，养了一条叫 cookie 的小狗 🐶。
           </p>
         </div>
         <div
@@ -238,11 +239,31 @@ export default function Page() {
           <ul className="!list-none flex space-x-4 items-center !pl-0 !mb-0">
             {socialMediaList.map((el) => (
               <li key={el.link}>
-                <Button asChild variant="outline" size="icon">
-                  <Link href={el.link} target="_blank">
-                    {el.icon}
-                  </Link>
-                </Button>
+                {el.isQRCode ? (
+                  <Dialog>
+                    <DialogTrigger asChild>
+                      <Button variant="outline" size="icon">
+                        {el.icon}
+                      </Button>
+                    </DialogTrigger>
+                    <DialogContent className="sm:max-w-[425px]">
+                      <div className="flex justify-center">
+                        <Image
+                          src={el.link}
+                          alt={el.label}
+                          width={200}
+                          height={200}
+                        />
+                      </div>
+                    </DialogContent>
+                  </Dialog>
+                ) : (
+                  <Button asChild variant="outline" size="icon">
+                    <Link href={el.link} target="_blank">
+                      {el.icon}
+                    </Link>
+                  </Button>
+                )}
               </li>
             ))}
           </ul>

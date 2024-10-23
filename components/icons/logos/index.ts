@@ -6,3 +6,4 @@ export * from './icon-logo-google';
 export * from './icon-logo-hardhat';
 export * from './icon-logo-sourcetree';
 export * from './icon-logo-juejin';
+export * from './icon-logo-wechat';

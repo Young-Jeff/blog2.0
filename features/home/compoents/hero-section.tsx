@@ -1,6 +1,8 @@
+import Image from 'next/image';
 import Link from 'next/link';
 
 import { Button, buttonVariants } from '@/components/ui/button';
+import { Dialog, DialogContent, DialogTrigger } from '@/components/ui/dialog';
 import {
   Tooltip,
   TooltipContent,
@@ -96,11 +98,31 @@ export const HeroSection = () => {
           <li key={el.link}>
             <Tooltip>
               <TooltipTrigger asChild>
-                <Button asChild variant="outline" size="icon">
-                  <Link href={el.link} target="_blank">
-                    {el.icon}
-                  </Link>
-                </Button>
+                {el.isQRCode ? (
+                  <Dialog>
+                    <DialogTrigger asChild>
+                      <Button variant="outline" size="icon">
+                        {el.icon}
+                      </Button>
+                    </DialogTrigger>
+                    <DialogContent className="sm:max-w-[425px]">
+                      <div className="flex justify-center">
+                        <Image
+                          src={el.link}
+                          alt={el.label}
+                          width={200}
+                          height={200}
+                        />
+                      </div>
+                    </DialogContent>
+                  </Dialog>
+                ) : (
+                  <Button asChild variant="outline" size="icon">
+                    <Link href={el.link} target="_blank">
+                      {el.icon}
+                    </Link>
+                  </Button>
+                )}
               </TooltipTrigger>
               <TooltipContent>{el.label}</TooltipContent>
             </Tooltip>

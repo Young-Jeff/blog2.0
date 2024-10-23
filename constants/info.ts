@@ -16,6 +16,10 @@ export const SOURCE_CODE_GITHUB_PAGE = 'https://github.com/Young-Jeff/blog2.0';
 /** 掘金个人页 */
 export const JUEJIN_PAGE = 'https://juejin.cn/user/4054654615302654/posts';
 
+/** 微信二维码 */
+export const WECHAT_QR_CODE =
+  'https://young-jeff-blog.oss-cn-shenzhen.aliyuncs.com/images/Wechat.jpg';
+
 /** 网站名称 */
 export const WEBSITE = `${NICKNAME}`;
 
