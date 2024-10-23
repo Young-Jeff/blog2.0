@@ -4,7 +4,7 @@ import {
   IconSkillGmailLight,
 } from '@/components/icons';
 
-import { EMAIL, GITHUB_PAGE, JUEJIN_PAGE } from '@/constants';
+import { GITHUB_PAGE, GMAIL_LINK, JUEJIN_PAGE } from '@/constants';
 
 export const socialMediaList: Array<{
   icon: React.ReactNode;
@@ -19,7 +19,7 @@ export const socialMediaList: Array<{
   {
     icon: <IconSkillGmailLight className="text-2xl dark:inline-block" />,
     label: 'Gmail',
-    link: `mailto:${EMAIL}`,
+    link: GMAIL_LINK,
   },
   {
     icon: <IconLogoJuejin className={`text-2xl text-[#2985fc]`} />,

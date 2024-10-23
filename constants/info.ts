@@ -7,6 +7,9 @@ export const NICKNAME = 'YoungJeff';
 /** Github 个人页 */
 export const GITHUB_PAGE = 'https://github.com/Young-Jeff';
 
+/** Gmail 地址 */
+export const GMAIL_LINK = `https://mail.google.com/mail/?view=cm&fs=1&to=${EMAIL}`;
+
 /** 网站代码 Github 地址 */
 export const SOURCE_CODE_GITHUB_PAGE = 'https://github.com/Young-Jeff/blog2.0';
 
