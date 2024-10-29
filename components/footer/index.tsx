@@ -63,7 +63,7 @@ export const Footer = async () => {
         </li>
       </ul>
       <div className="w-full text-sm flex flex-col md:flex-row items-center justify-center space-y-1 md:space-y-0 md:space-x-2 ">
-        <span>Copyright © 2023 - PRESENT</span>
+        <span>Copyright © PRESENT</span>
         <span className="hidden md:inline-block">·</span>
         <span className="hidden md:inline-block">{NICKNAME}</span>
         <span className="hidden md:inline-block">·</span>
