@@ -57,36 +57,6 @@ export const HeroSection = () => {
         </span>
         <TypeIntro />
       </div>
-      <p
-        className={cn(
-          'text-base md:text-2xl text-muted-foreground tracking-widest',
-          'animate-fade-up animate-ease-in-out',
-        )}
-        style={{
-          animationDelay: `${getDelay()}ms`,
-        }}
-      >
-        在这里我会分享各类技术栈所遇到问题与解决方案，也会记录一些经历感悟，希望对你有所帮助。
-      </p>
-      <div
-        className={cn('flex space-x-4', 'animate-fade-up animate-ease-in-out')}
-        style={{
-          animationDelay: `${getDelay()}ms`,
-        }}
-      >
-        <Link
-          href={PATHS.SITE_BLOG}
-          className={cn(buttonVariants({ variant: 'outline' }))}
-        >
-          我的博客
-        </Link>
-        <Link
-          href={PATHS.SITE_ABOUT}
-          className={cn(buttonVariants({ variant: 'outline' }))}
-        >
-          关于我
-        </Link>
-      </div>
 
       <ul
         className={cn('flex space-x-4', 'animate-fade-up animate-ease-in-out')}
