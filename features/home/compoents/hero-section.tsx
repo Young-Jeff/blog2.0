@@ -52,14 +52,14 @@ export const HeroSection = () => {
           animationDelay: `${getDelay()}ms`,
         }}
       >
-        <span className="text-base md:text-lg tracking-widest">
-          致力于：&nbsp;&nbsp;
-        </span>
         <TypeIntro />
       </div>
 
       <ul
-        className={cn('flex space-x-4', 'animate-fade-up animate-ease-in-out')}
+        className={cn(
+          'flex space-x-4 mt-10',
+          'animate-fade-up animate-ease-in-out',
+        )}
         style={{
           animationDelay: `${getDelay()}ms`,
         }}
