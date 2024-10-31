@@ -20,6 +20,9 @@ export const JUEJIN_PAGE = 'https://juejin.cn/user/4054654615302654/posts';
 export const WECHAT_QR_CODE =
   'https://young-jeff-blog.oss-cn-shenzhen.aliyuncs.com/images/Wechat.jpg';
 
+/** tg */
+export const TELEGRAM_LINK = 'https://t.me/young_jeff';
+
 /** 网站名称 */
 export const WEBSITE = `${NICKNAME}`;
 

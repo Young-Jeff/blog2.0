@@ -4,11 +4,13 @@ import {
   IconLogoWechat,
   IconSkillGmailLight,
 } from '@/components/icons';
+import { IconLogoTelegram } from '@/components/icons/logos/icon-logo-telegram';
 
 import {
   GITHUB_PAGE,
   GMAIL_LINK,
   JUEJIN_PAGE,
+  TELEGRAM_LINK,
   WECHAT_QR_CODE,
 } from '@/constants';
 
@@ -38,5 +40,10 @@ export const socialMediaList: Array<{
     label: '微信',
     link: WECHAT_QR_CODE,
     isQRCode: true,
+  },
+  {
+    icon: <IconLogoTelegram className="text-2xl" />, // Telegram brand color
+    label: 'Telegram',
+    link: TELEGRAM_LINK,
   },
 ];
