@@ -36,9 +36,6 @@ const ServiceSection: React.FC = () => {
           >
             我能帮你实现什么
           </h2>
-          <p className="text-xs sm:text-sm md:text-base text-gray-600 dark:text-gray-400">
-            提供专业的技术解决方案，助力您的业务快速发展
-          </p>
         </div>
 
         <div className="grid grid-cols-1 max-w-2xl mx-auto gap-3 sm:gap-4">

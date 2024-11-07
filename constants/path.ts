@@ -34,7 +34,7 @@ export const PATHS_MAP: Record<string, string> = {
   [PATHS.SITE_HOME]: '首页',
   [PATHS.SITE_BLOG]: '博客',
   [PATHS.SITE_PROJECT]: '项目',
-  [PATHS.SITE_SERVICES]: '接单合作',
+  [PATHS.SITE_SERVICES]: '开发服务',
   [PATHS.SITE_ABOUT]: '关于',
   [PATHS.SITEMAP]: '站点地图',
 

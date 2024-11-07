@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 
-import { Button, buttonVariants } from '@/components/ui/button';
+import { Button } from '@/components/ui/button';
 import { Dialog, DialogContent, DialogTrigger } from '@/components/ui/dialog';
 import {
   Tooltip,
@@ -9,7 +9,7 @@ import {
   TooltipTrigger,
 } from '@/components/ui/tooltip';
 
-import { NICKNAME, PATHS } from '@/constants';
+import { NICKNAME } from '@/constants';
 import { TypeIntro } from '@/features/home';
 import { cn } from '@/lib/utils';
 
