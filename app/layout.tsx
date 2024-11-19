@@ -39,18 +39,6 @@ export const metadata: Metadata = {
     '前端开发',
     '全栈开发',
   ].join(', '),
-  openGraph: {
-    title: 'Full Stack Developer - 软件外包|TypeScript全栈|响应式网站开发专家',
-    description:
-      '专业的软件外包服务提供者，擅长 TypeScript 全栈开发，提供响应式网站开发、Web3 DApp、Telegram Bot 和 Mini Apps 开发服务。使用 React/Vue + Tailwind CSS 构建现代化网站，确保高质量交付。',
-    type: 'website',
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Full Stack Developer - 软件外包|TypeScript全栈|响应式网站开发专家',
-    description:
-      '专业的软件外包服务提供者，承接各类开发项目，提供响应式网站开发、Web3 DApp、Telegram Bot 和 Mini Apps 开发服务。',
-  },
 };
 
 export default function RootLayout({ children }: React.PropsWithChildren) {
