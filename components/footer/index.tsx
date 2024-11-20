@@ -8,7 +8,7 @@ import {
   PATHS,
   PATHS_MAP,
 } from '@/constants';
-import { getPV, getUV } from '@/features/statistics';
+import { getPV, getTodayPV, getTodayUV, getUV } from '@/features/statistics';
 import { cn } from '@/lib/utils';
 import { formatNum } from '@/utils';
 
@@ -17,6 +17,9 @@ import { buttonVariants } from '../ui/button';
 export const Footer = async () => {
   const pv = await getPV();
   const uv = await getUV();
+
+  const todayUV = await getTodayUV();
+  const todayPV = await getTodayPV();
 
   return (
     <footer className="w-full flex flex-col py-8 max-w-screen-xl mx-auto text-muted-foreground">
@@ -47,7 +50,7 @@ export const Footer = async () => {
               '!no-underline px-0 text-muted-foreground',
             )}
           >
-            PV：{formatNum(pv)}
+            Today PV：{formatNum(todayPV)} / PV：{formatNum(pv)}
           </span>
         </li>
         <li>
@@ -58,7 +61,7 @@ export const Footer = async () => {
               '!no-underline px-0 text-muted-foreground',
             )}
           >
-            UV：{formatNum(uv)}
+            TodayUV：{formatNum(todayUV)} / UV：{formatNum(uv)}
           </span>
         </li>
       </ul>

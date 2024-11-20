@@ -1,5 +1,7 @@
 'use server';
 
+import dayjs from 'dayjs';
+
 import {
   REDIS_BLOG_UNIQUE_VISITOR,
   REDIS_PAGE_VIEW,
@@ -23,6 +25,42 @@ export const getStatistics = async () => {
   });
 
   return { blogCount, projectCount, tagCount, noteCount };
+};
+
+const getTodayKey = (baseKey: string) => {
+  const today = dayjs().format('yyyy-MM-dd');
+  return `${baseKey}:${today}`;
+};
+
+export const recordTodayPV = async () => {
+  const todayKey = getTodayKey(REDIS_PAGE_VIEW);
+  const pv = await redis.get(todayKey);
+
+  if (pv) {
+    await redis.incr(todayKey);
+  } else {
+    await redis.set(todayKey, 1);
+  }
+};
+
+export const getTodayPV = async () => {
+  const todayKey = getTodayKey(REDIS_PAGE_VIEW);
+  const pv = await redis.get(todayKey);
+  return pv ? parseInt(pv, 10) : 0;
+};
+
+export const recordTodayUV = async (cid?: string) => {
+  if (!cid) {
+    return;
+  }
+  const todayKey = getTodayKey(REDIS_UNIQUE_VISITOR);
+  await redis.sadd(todayKey, cid);
+};
+
+export const getTodayUV = async () => {
+  const todayKey = getTodayKey(REDIS_UNIQUE_VISITOR);
+  const uv = await redis.scard(todayKey);
+  return uv;
 };
 
 export const recordPV = async () => {

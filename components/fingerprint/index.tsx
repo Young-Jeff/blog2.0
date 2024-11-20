@@ -4,7 +4,12 @@ import { usePathname } from 'next/navigation';
 
 import { useAsyncEffect } from 'ahooks';
 
-import { useRecordPV, useRecordUV } from '@/features/statistics';
+import {
+  useRecordPV,
+  useRecordTodayPV,
+  useRecordTodayUV,
+  useRecordUV,
+} from '@/features/statistics';
 import { useCuid } from '@/hooks';
 import { createCuid } from '@/lib/cuid';
 import { sleep } from '@/utils';
@@ -14,6 +19,8 @@ export const Fingerprint = () => {
   const pathname = usePathname();
   const pvRecordQuery = useRecordPV();
   const uvRecordQuery = useRecordUV();
+  const todayPVRecordQuery = useRecordTodayPV(); // 新增：记录当日 PV 的钩子
+  const todayUVRecordQuery = useRecordTodayUV(); // 新增：记录当日 UV 的钩子
 
   useAsyncEffect(async () => {
     let id = cuid;
@@ -29,6 +36,10 @@ export const Fingerprint = () => {
 
     await pvRecordQuery.runAsync();
     await uvRecordQuery.runAsync(id);
+
+    // 上报当日 PV 和 UV
+    await todayPVRecordQuery.runAsync();
+    await todayUVRecordQuery.runAsync(id);
   }, [pathname]);
 
   return null;
