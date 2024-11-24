@@ -61,7 +61,7 @@ export const Footer = async () => {
               '!no-underline px-0 text-muted-foreground',
             )}
           >
-            TodayUV：{formatNum(todayUV)} / UV：{formatNum(uv)}
+            Today UV：{formatNum(todayUV)} / UV：{formatNum(uv)}
           </span>
         </li>
       </ul>
