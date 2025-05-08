@@ -21,7 +21,7 @@ export const WECHAT_QR_CODE =
   'https://young-jeff-blog.oss-cn-shenzhen.aliyuncs.com/images/Wechat.jpg';
 
 /** tg */
-export const TELEGRAM_LINK = 'https://t.me/young_jeff';
+export const TELEGRAM_LINK = 'https://t.me/cookie_yang';
 
 /** 网站名称 */
 export const WEBSITE = `${NICKNAME}`;
