@@ -1,0 +1,49 @@
+{
+  "common": {
+    "Home": "首页",
+    "Blog": "博客",
+    "Project": "项目",
+    "Dev Services": "开发服务",
+    "About": "关于",
+    "Sitemap": "站点地图",
+    "Homepage": "首页"
+  },
+  "home": {
+    "Hi, I'm": "你好，我是",
+    "A Web <Developer />": "一个Web <Developer />"
+  },
+  "services": {
+    "title": "我能帮你实现什么",
+    "fullStackDevelopment": "全栈开发与部署服务",
+    "fullStackDescription": "提供从需求分析、架构设计到开发部署的一站式解决方案。基于 TypeScript + Next.js 构建现代化前端，使用 Express/Nest.js 开发高性能后端服务，确保项目高效交付和稳定运行。",
+    "telegramDevelopment": "Telegram Bot 和小程序开发",
+    "telegramDescription": "专业的 Telegram 机器人和Mini Apps开发",
+    "responsiveWebDevelopment": "响应式网站开发",
+    "responsiveWebDescription": "基于 React/Vue + Tailwind CSS 构建现代化响应式网站。专注于用户体验和性能优化，确保在各种设备上呈现完美的视觉效果。"
+  },
+  "about": {
+    "whoAmI": "我是谁",
+    "whoAmIDesc": "👨‍💻 95 后TS全栈开发，热衷于学习新技术，不断探索和创新。\n📖 喜欢阅读，🏋️ 撸铁，养了一条叫 cookie 的小狗 🐶。",
+    "mySkills": "我的技能",
+    "proficientUsage": "熟练使用",
+    "backend": "后端",
+    "web3": "Web3",
+    "others": "其它",
+    "contactMe": "联系我",
+    "frontend": "前端",
+    "fullStackDevelopment": "进行全栈开发",
+    "nodeDevelopment": "进行Node开发",
+    "ethereumEcosystem": "以太坊生态开发",
+    "solanaEcosystem": "solana生态开发",
+    "development": "开发",
+    "basicSmartContract": "浅浅的搞一下智能合约",
+    "localServiceConfig": "配置本地服务",
+    "branchManagement": "进行分支管理",
+    "problemSolving": "解决遇到的各种问题"
+  },
+  "metadata": {
+    "title": "专业的 TypeScript 全栈开发者",
+    "description": "专业的 TypeScript 全栈开发者，提供软件外包服务，包括响应式网站开发、Web3 DApp、Telegram Bot 和 Mini Apps 开发。承接各类软件开发项目，基于 React/Vue + Tailwind CSS 构建现代化响应式网站，使用 Next.js、Express、Nest.js 等技术栈，确保高质量交付。",
+    "keywords": "TypeScript full-stack development, software outsourcing, project outsourcing, website development, responsive website, React development, Vue development, Tailwind CSS, Web3 development, TON development, Telegram Bot development, Telegram Mini Apps, TWA development, Next.js development, frontend development, full-stack development"
+  }
+}

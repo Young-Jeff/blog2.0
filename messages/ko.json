@@ -1,0 +1,49 @@
+{
+  "common": {
+    "Home": "홈",
+    "Blog": "블로그",
+    "Project": "프로젝트",
+    "Dev Services": "개발 서비스",
+    "About": "소개",
+    "Sitemap": "사이트맵",
+    "Homepage": "홈페이지"
+  },
+  "home": {
+    "Hi, I'm": "안녕하세요, 저는",
+    "A Web <Developer />": "웹 <Developer /> 입니다"
+  },
+  "services": {
+    "title": "무엇을 도와드릴까요?",
+    "fullStackDevelopment": "풀스택 개발 및 배포 서비스",
+    "fullStackDescription": "요구사항 분석, 아키텍처 설계부터 개발 및 배포까지 원스톱 솔루션을 제공합니다. TypeScript + Next.js로 현대적인 프론트엔드를 구축하고, Express/Nest.js를 사용하여 고성능 백엔드 서비스를 개발하여 프로젝트의 효율적인 전달과 안정적인 운영을 보장합니다.",
+    "telegramDevelopment": "텔레그램 봇 및 미니 앱 개발",
+    "telegramDescription": "전문적인 텔레그램 봇 및 미니 앱 개발",
+    "responsiveWebDevelopment": "반응형 웹사이트 개발",
+    "responsiveWebDescription": "React/Vue + Tailwind CSS로 현대적인 반응형 웹사이트를 구축합니다. 사용자 경험과 성능 최적화에 중점을 두어 모든 기기에서 완벽한 시각적 표현을 보장합니다."
+  },
+  "about": {
+    "whoAmI": "저는 누구인가",
+    "whoAmIDesc": "👨‍💻 95년대생 TS 풀스택 개발자, 새로운 기술을 배우는 것을 열정적으로 추구하며 지속적으로 탐구하고 혁신합니다.\n📖 독서를 좋아하고, 🏋️ 웨이트 트레이닝을 하며, 쿠키라는 이름의 강아지 🐶를 키우고 있습니다.",
+    "mySkills": "내 기술",
+    "proficientUsage": "숙련된 사용",
+    "backend": "백엔드",
+    "web3": "Web3",
+    "others": "기타",
+    "contactMe": "연락처",
+    "frontend": "프론트엔드",
+    "fullStackDevelopment": "풀스택 개발",
+    "nodeDevelopment": "Node 개발",
+    "ethereumEcosystem": "이더리움 생태계 개발",
+    "solanaEcosystem": "솔라나 생태계 개발",
+    "development": "개발",
+    "basicSmartContract": "기본 스마트 컨트랙트 개발",
+    "localServiceConfig": "로컬 서비스 설정",
+    "branchManagement": "브랜치 관리",
+    "problemSolving": "문제 해결"
+  },
+  "metadata": {
+    "title": "전문적인 TypeScript 풀스택 개발자",
+    "description": "전문적인 TypeScript 풀스택 개발자가 제공하는 소프트웨어 아웃소싱 서비스로, 반응형 웹사이트 개발, Web3 DApp, 텔레그램 봇 및 미니 앱 개발을 포함합니다. 다양한 소프트웨어 개발 프로젝트를 수행하여, React/Vue + Tailwind CSS를 기반으로 한 현대적인 반응형 웹사이트를 구축하고, Next.js, Express, Nest.js 등 다른 기술 스택을 사용하여 고품질의 전달을 보장합니다.",
+    "keywords": "TypeScript full-stack development, software outsourcing, project outsourcing, website development, responsive website, React development, Vue development, Tailwind CSS, Web3 development, TON development, Telegram Bot development, Telegram Mini Apps, TWA development, Next.js development, frontend development, full-stack development"
+  }
+}

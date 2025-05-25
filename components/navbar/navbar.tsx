@@ -2,6 +2,7 @@
 
 import React from 'react';
 
+import { useTranslations } from 'next-intl';
 import Link from 'next/link';
 
 import { useScroll } from 'ahooks';
@@ -20,13 +21,14 @@ import { navItems } from './config';
 import { MobileNav } from './mobile-nav';
 
 import { IconBarandGithub, IconLogo, IconSolarUserHeartBold } from '../icons';
+import { LanguageSwitcher } from '../language-switcher';
 import { NextLink } from '../next-link';
 import { SwitchTheme } from '../switch-theme';
 import { Button } from '../ui/button';
 
 export const Navbar = () => {
   const scroll = useScroll(() => document);
-
+  const t = useTranslations('common');
   return (
     <header
       className={cn(
@@ -59,7 +61,7 @@ export const Navbar = () => {
                       'bg-transparent',
                     )}
                   >
-                    {el.label}
+                    {t(el.label as string)}
                   </NavigationMenuLink>
                 </Link>
               </NavigationMenuItem>
@@ -68,6 +70,7 @@ export const Navbar = () => {
         </div>
         <MobileNav />
         <div className="flex flex-1 sm:flex-none justify-end items-center gap-1">
+          <LanguageSwitcher />
           <SwitchTheme />
 
           <Link

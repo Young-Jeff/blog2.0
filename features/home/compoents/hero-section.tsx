@@ -1,3 +1,4 @@
+import { useTranslations } from 'next-intl';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -16,6 +17,7 @@ import { cn } from '@/lib/utils';
 import { socialMediaList } from './social-media';
 
 export const HeroSection = () => {
+  const t = useTranslations('home');
   let delay = 0;
 
   // 每次调用，增加延时
@@ -29,7 +31,7 @@ export const HeroSection = () => {
           animationDelay: `${getDelay()}ms`,
         }}
       >
-        👋 你好，我是
+        👋 {t("Hi, I'm")}
       </p>
       <strong
         className={cn(
@@ -44,7 +46,7 @@ export const HeroSection = () => {
         {NICKNAME}
       </strong>
       <div className="text-1xl md:text-2xl tracking-widest">
-        {'A Web <Developer /> .'}
+        {t('A Web <Developer />')}
       </div>
       <div
         className={cn('animate-fade-up animate-ease-in-out')}

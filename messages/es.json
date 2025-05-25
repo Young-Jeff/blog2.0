@@ -1,0 +1,49 @@
+{
+  "common": {
+    "Home": "Inicio",
+    "Blog": "Blog",
+    "Project": "Proyecto",
+    "Dev Services": "Servicios de Desarrollo",
+    "About": "Acerca de",
+    "Sitemap": "Mapa del sitio",
+    "Homepage": "Página principal"
+  },
+  "home": {
+    "Hi, I'm": "Hola, soy",
+    "A Web <Developer />": "Desarrollador <Developer /> Web"
+  },
+  "services": {
+    "title": "¿Qué puedo ayudarte a lograr?",
+    "fullStackDevelopment": "Servicios de Desarrollo y Despliegue Full-Stack",
+    "fullStackDescription": "Ofrecemos soluciones integrales que abarcan desde el análisis de requisitos y diseño de arquitectura hasta el desarrollo e implementación. Desarrollamos interfaces modernas con TypeScript + Next.js, y creamos servicios backend de alto rendimiento utilizando Express/Nest.js, garantizando una entrega eficiente y un funcionamiento estable de los proyectos.",
+    "telegramDevelopment": "Desarrollo de Bot de Telegram y Mini Apps",
+    "telegramDescription": "Desarrollo profesional de Bot de Telegram y Mini Apps",
+    "responsiveWebDevelopment": "Desarrollo de Sitios Web Responsivos",
+    "responsiveWebDescription": "Creamos sitios web responsivos modernos con React/Vue + Tailwind CSS. Nos enfocamos en la experiencia del usuario y la optimización del rendimiento, asegurando una presentación visual perfecta en todos los dispositivos."
+  },
+  "about": {
+    "whoAmI": "Quién Soy",
+    "whoAmIDesc": "👨‍💻 Desarrollador full-stack TS de los 95, apasionado por aprender nuevas tecnologías, constantemente explorando e innovando.\n📖 Me encanta leer, 🏋️ levantar pesas, y tengo un perrito llamado cookie 🐶.",
+    "mySkills": "Mis Habilidades",
+    "proficientUsage": "Uso Proficiente",
+    "backend": "Backend",
+    "web3": "Web3",
+    "others": "Otros",
+    "contactMe": "Contáctame",
+    "frontend": "Frontend",
+    "fullStackDevelopment": "Desarrollo Full Stack",
+    "nodeDevelopment": "Desarrollo Node",
+    "ethereumEcosystem": "Desarrollo del Ecosistema Ethereum",
+    "solanaEcosystem": "Desarrollo del Ecosistema Solana",
+    "development": "Desarrollo",
+    "basicSmartContract": "Desarrollo Básico de Contratos Inteligentes",
+    "localServiceConfig": "Configuración de Servicios Locales",
+    "branchManagement": "Gestión de Ramas",
+    "problemSolving": "Resolución de Problemas"
+  },
+  "metadata": {
+    "title": "Desarrollador Full-Stack Profesional de TypeScript",
+    "description": "Desarrollador full-stack profesional que ofrece servicios de outsourcing de software, incluyendo desarrollo de sitios web responsivos, aplicaciones Web3, bots de Telegram y Mini Apps. Realiza diversos proyectos de desarrollo de software, construye sitios web responsivos modernos basados en React/Vue + Tailwind CSS, utiliza Next.js, Express, Nest.js y otras tecnologías para garantizar una entrega de alta calidad.",
+    "keywords": "TypeScript full-stack development, software outsourcing, project outsourcing, website development, responsive website, React development, Vue development, Tailwind CSS, Web3 development, TON development, Telegram Bot development, Telegram Mini Apps, TWA development, Next.js development, frontend development, full-stack development"
+  }
+}

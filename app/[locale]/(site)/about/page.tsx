@@ -1,3 +1,4 @@
+import { useTranslations } from 'next-intl';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -49,6 +50,7 @@ import { socialMediaList } from '@/features/home';
 export const revalidate = 60;
 
 export default function Page() {
+  const t = useTranslations('about');
   let delay = 0;
 
   // 每次调用，增加延时
@@ -68,12 +70,8 @@ export default function Page() {
             animationDelay: `${getDelay()}ms`,
           }}
         >
-          <h2>我是谁</h2>
-          <p>
-            👨‍💻 95 后TS全栈开发，热衷于学习新技术，不断探索和创新。
-            <br />
-            📖 喜欢阅读，🏋️ 撸铁，养了一条叫 cookie 的小狗 🐶。
-          </p>
+          <h2>{t('whoAmI')}</h2>
+          <p>{t('whoAmIDesc')}</p>
         </div>
         <div
           className="animate-fade-up animate-ease-in-out"
@@ -81,7 +79,7 @@ export default function Page() {
             animationDelay: `${getDelay()}ms`,
           }}
         >
-          <h2>我的技能</h2>
+          <h2>{t('mySkills')}</h2>
         </div>
         <div
           className="animate-fade-up animate-ease-in-out"
@@ -89,13 +87,13 @@ export default function Page() {
             animationDelay: `${getDelay()}ms`,
           }}
         >
-          <h3>前端</h3>
+          <h3>{t('frontend')}</h3>
           <ul>
             <li>
               <IconSkillHTML className="mx-1 translate-y-0.5" /> HTML +
               <IconSkillCSS className="mx-1 translate-y-0.5" />
               CSS + <IconSkillJavaScript className="mx-1 translate-y-0.5" />
-              JavaScript ，熟练使用
+              JavaScript {t('proficientUsage')}
             </li>
             <li>
               <>
@@ -112,7 +110,7 @@ export default function Page() {
                 <IconSkillWindicssDark className="dark:hidden mx-1 translate-y-0.5" />
                 <IconSkillWindicssLight className="hidden dark:inline-block mx-1 translate-y-0.5" />
               </>
-              windicss，熟练使用
+              windicss {t('proficientUsage')}
             </li>
             <li>
               <IconSkillTypeScript className="mx-1 translate-y-0.5" />
@@ -131,7 +129,7 @@ export default function Page() {
                 <IconSkillTailwindcssDark className="dark:hidden mx-1 translate-y-0.5" />
                 <IconSkillTailwindcssLight className="hidden dark:inline-block mx-1 translate-y-0.5" />
               </>
-              Tailwind CSS，熟练使用
+              Tailwind CSS {t('proficientUsage')}
             </li>
           </ul>
         </div>
@@ -141,7 +139,7 @@ export default function Page() {
             animationDelay: `${getDelay()}ms`,
           }}
         >
-          <h3>后端</h3>
+          <h3>{t('backend')}</h3>
           <ul>
             <li>
               <>
@@ -155,8 +153,8 @@ export default function Page() {
                 <IconSkillMysqlDark className="dark:hidden mx-1 translate-y-0.5" />
                 <IconSkillMysqlLight className="hidden dark:inline-block mx-1 translate-y-0.5" />
               </>
-              MySQL + <IconLogoRedis className="mx-1 translate-y-0.5" /> Redis
-              搞全栈开发
+              MySQL + <IconLogoRedis className="mx-1 translate-y-0.5" /> Redis{' '}
+              {t('fullStackDevelopment')}
             </li>
             <li>
               <>
@@ -167,7 +165,7 @@ export default function Page() {
               <IconSkillPrisma className="mx-1 translate-y-0.5" />
               Prisma + <IconLogoTypeorm className="mx-1 translate-y-0.5" />{' '}
               TypeORM + <IconLogoSequelize className="mx-1 translate-y-0.5" />{' '}
-              Sequelize 搞Node开发
+              Sequelize {t('nodeDevelopment')}
             </li>
           </ul>
         </div>
@@ -177,26 +175,26 @@ export default function Page() {
             animationDelay: `${getDelay()}ms`,
           }}
         >
-          <h3>web3</h3>
+          <h3>{t('web3')}</h3>
           <ul>
             <li>
               <IconLogoEth className="mx-1 translate-y-0.5" />
-              Ethers.js + viem + wagmi + rainbowkit 以太坊生态开发
+              Ethers.js + viem + wagmi + rainbowkit {t('ethereumEcosystem')}
             </li>
             <li>
               <IconLogoSol className="mx-1 translate-y-1" />
               @solana/web3.js + @solana/spl-token + @coral-xyz/anchor +
-              @solana/wallet-adapter-wallets solana生态开发
+              @solana/wallet-adapter-wallets {t('solanaEcosystem')}
             </li>
             <li>
               <IconLogoTelegram className="mx-1 translate-y-1" />
-              grammy + tg Bot API 开发tg bot + tg Mini Apps
+              grammy + tg Bot API {t('development')} tg bot + tg Mini Apps
             </li>
             <li>
               <IconSkillSolidity className="mx-1 translate-y-0.5" />
               Solidity +
               <IconLogoHardhat className="mx-1 translate-y-0.5" />
-              Hardhat + Foundry 浅浅的搞一下智能合约
+              Hardhat + Foundry {t('basicSmartContract')}
               <IconLogoEthereum className="mx-1 translate-y-0.5" />
             </li>
           </ul>
@@ -207,23 +205,25 @@ export default function Page() {
             animationDelay: `${getDelay()}ms`,
           }}
         >
-          <h3>其它</h3>
+          <h3>{t('others')}</h3>
           <ul>
             <li>
               <IconSkillDocker className="mx-1 translate-y-0.5" />
-              Docker + Docker Desktop 配置本地服务
+              Docker + Docker Desktop {t('localServiceConfig')}
             </li>
             <li>
-              熟练使用 <IconSkillGit className="mx-1 translate-y-0.5" />
+              {t('proficientUsage')}{' '}
+              <IconSkillGit className="mx-1 translate-y-0.5" />
               git +
               <IconLogoSourcetree className="mx-1 translate-y-0.5" />
-              SourceTree 进行分支管理
+              SourceTree {t('branchManagement')}
             </li>
             <li>
-              熟练使用 <IconLogoGoogle className="mx-1 translate-y-0.5" />
+              {t('proficientUsage')}{' '}
+              <IconLogoGoogle className="mx-1 translate-y-0.5" />
               Google +
               <IconBarandGithub className="mx-1 translate-y-1" />
-              GitHub + Cursor + ChatGPT 解决遇到的各种问题 🙋
+              GitHub + Cursor + ChatGPT {t('problemSolving')} 🙋
             </li>
           </ul>
         </div>
@@ -233,7 +233,7 @@ export default function Page() {
             animationDelay: `${getDelay()}ms`,
           }}
         >
-          <h2>联系我</h2>
+          <h2>{t('contactMe')}</h2>
           <ul className="!list-none flex space-x-4 items-center !pl-0 !mb-0">
             {socialMediaList.map((el) => (
               <li key={el.link}>

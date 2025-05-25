@@ -51,12 +51,6 @@ export const PageHeader = ({
           </BreadcrumbItem>
         </BreadcrumbList>
       </Breadcrumb>
-      {/* <h2 className="text-3xl md:text-4xl font-bold mb-2">
-        {PATHS_MAP[labelLink]}
-      </h2>
-      <p className="text-base text-muted-foreground">
-        {PATH_DESCRIPTION_MAP[labelLink]}
-      </p> */}
 
       <div className="absolute bottom-0 right-0">{action}</div>
     </div>

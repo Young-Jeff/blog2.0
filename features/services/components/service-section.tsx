@@ -1,31 +1,32 @@
 import React from 'react';
 
+import { useTranslations } from 'next-intl';
+
 import { Icon } from '@iconify/react';
 
 const services = [
   {
     icon: 'fluent:code-circle-20-filled',
-    title: '全栈开发与部署服务',
-    description:
-      '提供从需求分析、架构设计到开发部署的一站式解决方案。基于 TypeScript + Next.js 构建现代化前端，使用 Express/Nest.js 开发高性能后端服务，确保项目高效交付和稳定运行。',
+    title: 'fullStackDevelopment',
+    description: 'fullStackDescription',
     tags: ['TypeScript', 'Next.js', 'Express', 'Nest.js', 'AWS/阿里云'],
   },
   {
     icon: 'fluent:bot-20-filled',
-    title: 'Telegram Bot 和小程序开发',
-    description: '专业的 Telegram 机器人和Mini Apps开发',
+    title: 'telegramDevelopment',
+    description: 'telegramDescription',
     tags: ['Telegram Bot API', 'Mini-Apps', 'Ton', '用户交互'],
   },
   {
     icon: 'fluent:design-ideas-20-filled',
-    title: '响应式网站开发',
-    description:
-      '基于 React/Vue + Tailwind CSS 构建现代化响应式网站。专注于用户体验和性能优化，确保在各种设备上呈现完美的视觉效果。',
+    title: 'responsiveWebDevelopment',
+    description: 'responsiveWebDescription',
     tags: ['React', 'Vue', 'Tailwind CSS', 'Responsive Design', 'Animation'],
   },
 ];
 
 const ServiceSection: React.FC = () => {
+  const t = useTranslations('services');
   return (
     <div className="px-3 sm:px-4 py-8 sm:py-12">
       <div className="max-w-6xl mx-auto">
@@ -34,7 +35,7 @@ const ServiceSection: React.FC = () => {
             className="text-xl sm:text-2xl md:text-3xl font-bold mb-1.5 sm:mb-2 
                         bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-blue-400"
           >
-            我能帮你实现什么
+            {t('title')}
           </h2>
         </div>
 
@@ -67,7 +68,7 @@ const ServiceSection: React.FC = () => {
                                text-gray-800 dark:text-gray-100
                                truncate"
                   >
-                    {service.title}
+                    {t(service.title)}
                   </h3>
                   <p
                     className="text-xs sm:text-sm 
@@ -75,7 +76,7 @@ const ServiceSection: React.FC = () => {
                                text-gray-600 dark:text-gray-400 
                                mb-2 sm:mb-3"
                   >
-                    {service.description}
+                    {t(service.description)}
                   </p>
                   <div className="flex flex-wrap gap-1 sm:gap-1.5">
                     {service.tags.map((tag, tagIndex) => (

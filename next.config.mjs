@@ -1,3 +1,5 @@
+import createNextIntlPlugin from 'next-intl/plugin';
+
 import NextBundleAnalyzer from '@next/bundle-analyzer';
 
 const withBundleAnalyzer = NextBundleAnalyzer({
@@ -40,4 +42,5 @@ const config = {
   },
 };
 
-export default withBundleAnalyzer(config);
+const withNextIntl = createNextIntlPlugin();
+export default withBundleAnalyzer(withNextIntl(config));

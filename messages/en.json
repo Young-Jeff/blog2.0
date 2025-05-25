@@ -1,0 +1,49 @@
+{
+  "common": {
+    "Home": "Home",
+    "Blog": "Blog",
+    "Project": "Project",
+    "Dev Services": "Dev Services",
+    "About": "About",
+    "Sitemap": "Sitemap",
+    "Homepage": "Homepage"
+  },
+  "home": {
+    "Hi, I'm": "Hi, I'm",
+    "A Web <Developer />": "A Web <Developer /> ."
+  },
+  "services": {
+    "title": "What can I help you achieve?",
+    "fullStackDevelopment": "Full-Stack Development and Deployment Services",
+    "fullStackDescription": "Providing one-stop solutions from requirements analysis, architecture design to development and deployment. Building modern frontend with TypeScript + Next.js, developing high-performance backend services using Express/Nest.js, ensuring efficient project delivery and stable operation.",
+    "telegramDevelopment": "Telegram Bot and Mini Apps Development",
+    "telegramDescription": "Professional Telegram Bot and Mini Apps Development",
+    "responsiveWebDevelopment": "Responsive Website Development",
+    "responsiveWebDescription": "Building modern responsive websites with React/Vue + Tailwind CSS. Focusing on user experience and performance optimization, ensuring perfect visual presentation across all devices."
+  },
+  "about": {
+    "whoAmI": "Who Am I",
+    "whoAmIDesc": "👨‍💻 95s TS full-stack developer, passionate about learning new technologies, constantly exploring and innovating.\n📖 Love reading, 🏋️ lifting weights, and have a little dog named cookie 🐶.",
+    "mySkills": "My Skills",
+    "proficientUsage": "Proficient in",
+    "backend": "Backend",
+    "web3": "Web3",
+    "others": "Others",
+    "contactMe": "Contact Me",
+    "frontend": "Frontend",
+    "fullStackDevelopment": "Full Stack Development",
+    "nodeDevelopment": "Node Development",
+    "ethereumEcosystem": "Ethereum Ecosystem Development",
+    "solanaEcosystem": "Solana Ecosystem Development",
+    "development": "Development",
+    "basicSmartContract": "Basic Smart Contract Development",
+    "localServiceConfig": "Local Service Configuration",
+    "branchManagement": "Branch Management",
+    "problemSolving": "Problem Solving"
+  },
+  "metadata": {
+    "title": "Professional TypeScript Full-Stack Developer",
+    "description": "Professional TypeScript full-stack developer providing software outsourcing services, including responsive website development, Web3 DApp, Telegram Bot and Mini Apps development. Undertake various software development projects, build modern responsive websites based on React/Vue + Tailwind CSS, use Next.js, Express, Nest.js and other technology stacks to ensure high-quality delivery.",
+    "keywords": "TypeScript full-stack development, software outsourcing, project outsourcing, website development, responsive website, React development, Vue development, Tailwind CSS, Web3 development, TON development, Telegram Bot development, Telegram Mini Apps, TWA development, Next.js development, frontend development, full-stack development"
+  }
+}
