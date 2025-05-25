@@ -13,13 +13,20 @@ const intlMiddleware = createIntlMiddleware({
   localeDetection: true,
   localePrefix: 'always',
 });
-
+const noLocalePaths = ['/auth', '/admin', '/api', '/server-sitemap-index.xml'];
 // 合并中间件
 export async function middleware(request: NextRequest) {
   const pathname = request.nextUrl.pathname;
 
-  // 处理管理后台路由的认证
-  if (pathname.startsWith('/auth') || pathname.startsWith('/admin')) {
+  if (noLocalePaths.some((prefix) => pathname.startsWith(prefix))) {
+    if (pathname.startsWith('/admin')) {
+      const session = await auth(request);
+      console.log('session111', session?.user);
+      if (!session?.user) {
+        // 未登录，重定向到登录页
+        return NextResponse.redirect(new URL('/auth/signin', request.url));
+      }
+    }
     return NextResponse.next();
   }
 
