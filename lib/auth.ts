@@ -54,9 +54,6 @@ export const { handlers, auth, signOut, signIn } = NextAuth({
     GithubProvider({ allowDangerousEmailAccountLinking: true }),
     GoogleProvider({ allowDangerousEmailAccountLinking: true }),
   ],
-  pages: {
-    signIn: PATHS.AUTH_SIGNIN,
-  },
   debug: NODE_ENV === 'development',
   callbacks: {
     session: ({ session, token }) => {

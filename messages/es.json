@@ -45,5 +45,30 @@
     "title": "Desarrollador Full-Stack Profesional de TypeScript",
     "description": "Desarrollador full-stack profesional que ofrece servicios de outsourcing de software, incluyendo desarrollo de sitios web responsivos, aplicaciones Web3, bots de Telegram y Mini Apps. Realiza diversos proyectos de desarrollo de software, construye sitios web responsivos modernos basados en React/Vue + Tailwind CSS, utiliza Next.js, Express, Nest.js y otras tecnologías para garantizar una entrega de alta calidad.",
     "keywords": "TypeScript full-stack development, software outsourcing, project outsourcing, website development, responsive website, React development, Vue development, Tailwind CSS, Web3 development, TON development, Telegram Bot development, Telegram Mini Apps, TWA development, Next.js development, frontend development, full-stack development"
+  },
+  "admin": {
+    "Home": "Inicio",
+    "Statistic": "Estadísticas",
+    "Blog": "Blog",
+    "Blog Create": "Crear Blog",
+    "Blog Edit": "Editar Blog",
+    "Project": "Proyecto",
+    "Project Create": "Crear Proyecto",
+    "Project Edit": "Editar Proyecto",
+    "Tag": "Etiqueta",
+    "Note": "Nota",
+    "Signin": "Iniciar sesión",
+    "ManagementSystem": "Sistema de Gestión",
+    "admin": "Admin",
+    "guest": "Invitado",
+    "canOnlyViewPartialData": "Solo puede ver datos parciales",
+    "hasAllPermissions": "Tiene todos los permisos",
+    "goToHomepage": "Ir a la página principal",
+    "logout": "Cerrar sesión",
+    "confirmLogout": "¿Estás seguro de querer cerrar sesión?",
+    "cancel": "Cancelar",
+    "confirm": "Confirmar",
+    "tips": "Tips",
+    "underDevelopment": "En Desarrollo"
   }
 }

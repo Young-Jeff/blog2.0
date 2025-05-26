@@ -2,6 +2,7 @@
 
 import React from 'react';
 
+import { useTranslations } from 'next-intl';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
@@ -58,6 +59,7 @@ const adminNavItems: Array<{
 
 export const Sidebar = () => {
   const pathname = usePathname();
+  const t = useTranslations('admin');
 
   return adminNavItems.map((el) => (
     <Link
@@ -81,7 +83,7 @@ export const Sidebar = () => {
           pathname === el.link ? 'font-semibold' : '',
         )}
       >
-        {el.label}
+        {t(el.label!)}
       </span>
     </Link>
   ));

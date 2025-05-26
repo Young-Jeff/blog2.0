@@ -5,12 +5,11 @@ import { getTranslations } from 'next-intl/server';
 import { PATHS, PATHS_MAP } from '@/constants';
 
 export const generateMetadata = async () => {
-  const t = await getTranslations('common');
+  const t = await getTranslations('admin');
   return {
-    title: t(PATHS_MAP[PATHS.SITE_BLOG]!),
+    title: `${t(PATHS_MAP[PATHS.ADMIN_TAG]!)} - ${t('ManagementSystem')}`,
   };
 };
-
 export default function Layout({ children }: React.PropsWithChildren) {
   return <>{children}</>;
 }

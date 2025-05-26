@@ -45,5 +45,30 @@
     "title": "전문적인 TypeScript 풀스택 개발자",
     "description": "전문적인 TypeScript 풀스택 개발자가 제공하는 소프트웨어 아웃소싱 서비스로, 반응형 웹사이트 개발, Web3 DApp, 텔레그램 봇 및 미니 앱 개발을 포함합니다. 다양한 소프트웨어 개발 프로젝트를 수행하여, React/Vue + Tailwind CSS를 기반으로 한 현대적인 반응형 웹사이트를 구축하고, Next.js, Express, Nest.js 등 다른 기술 스택을 사용하여 고품질의 전달을 보장합니다.",
     "keywords": "TypeScript full-stack development, software outsourcing, project outsourcing, website development, responsive website, React development, Vue development, Tailwind CSS, Web3 development, TON development, Telegram Bot development, Telegram Mini Apps, TWA development, Next.js development, frontend development, full-stack development"
+  },
+  "admin": {
+    "Home": "홈",
+    "Statistic": "통계",
+    "Blog": "블로그",
+    "Blog Create": "블로그 생성",
+    "Blog Edit": "블로그 수정",
+    "Project": "프로젝트",
+    "Project Create": "프로젝트 생성",
+    "Project Edit": "프로젝트 수정",
+    "Tag": "태그",
+    "Note": "노트",
+    "Signin": "로그인",
+    "ManagementSystem": "관리 시스템",
+    "admin": "관리자",
+    "guest": "게스트",
+    "canOnlyViewPartialData": "부분 데이터만 볼 수 있습니다",
+    "hasAllPermissions": "모든 권한을 가지고 있습니다",
+    "goToHomepage": "프론트엔드 홈페이지로 이동",
+    "logout": "로그아웃",
+    "confirmLogout": "로그아웃하시겠습니까?",
+    "cancel": "취소",
+    "confirm": "확인",
+    "tips": "팁",
+    "underDevelopment": "개발 중"
   }
 }

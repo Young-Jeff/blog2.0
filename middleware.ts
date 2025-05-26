@@ -13,24 +13,35 @@ const intlMiddleware = createIntlMiddleware({
   localeDetection: true,
   localePrefix: 'always',
 });
-const noLocalePaths = ['/auth', '/admin', '/api', '/server-sitemap-index.xml'];
+
+const noLocalePaths = ['/api', '/server-sitemap-index.xml'];
+
 // 合并中间件
 export async function middleware(request: NextRequest) {
   const pathname = request.nextUrl.pathname;
 
+  // 检查是否是不需要国际化的路径
   if (noLocalePaths.some((prefix) => pathname.startsWith(prefix))) {
-    if (pathname.startsWith('/admin')) {
-      const session = await auth(request);
-      console.log('session111', session?.user);
-      if (!session?.user) {
-        // 未登录，重定向到登录页
-        return NextResponse.redirect(new URL('/auth/signin', request.url));
-      }
-    }
     return NextResponse.next();
   }
 
-  // 处理其他路由的国际化
+  // 检查是否是admin路径（带语言前缀）
+  // 匹配 /zh/admin, /en/admin 等格式
+  const adminPathRegex = /^\/[a-z]{2}\/admin/;
+  if (adminPathRegex.test(pathname)) {
+    // 手动调用 auth() 获取会话信息
+    const session = await auth();
+    if (!session?.user) {
+      // 获取当前语言前缀
+      const locale = pathname.split('/')[1] || routing.defaultLocale;
+      // 未登录，重定向到对应语言的登录页
+      return NextResponse.redirect(
+        new URL(`/${locale}/auth/signin`, request.url),
+      );
+    }
+  }
+
+  // 处理其他路径的国际化
   return intlMiddleware(request);
 }
 
@@ -38,7 +49,5 @@ export const config = {
   matcher: [
     // 匹配所有路径，除了api、_next、静态文件等
     '/((?!api|_next|_vercel|.*\\..*).*)',
-    // 匹配管理后台路径
-    '/admin/:path*',
   ],
 };

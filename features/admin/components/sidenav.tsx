@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { type Session } from 'next-auth';
+import { getTranslations } from 'next-intl/server';
 import Link from 'next/link';
 
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
@@ -16,19 +17,20 @@ import { isAdmin } from '@/lib/utils';
 
 import { Sidebar } from './sidebar';
 
-const Desc = ({ session }: { session: Session | null }) => {
+const Desc = async ({ session }: { session: Session | null }) => {
+  const t = await getTranslations('admin');
   return isAdmin(session?.user?.email, session?.user?.id) ? (
     <div className="flex justify-center flex-col items-center space-y-1">
-      <Badge className="bg-background text-foreground">管理员</Badge>
-      <div className="text-xs text-muted-foreground font-medium">
-        拥有所有权限
+      <Badge className="bg-background text-foreground">{t('admin')}</Badge>
+      <div className="text-xs text-muted-foreground font-medium wrap-break-word">
+        {t('hasAllPermissions')}
       </div>
     </div>
   ) : (
     <div className="flex justify-center flex-col items-center space-y-1">
-      <Badge className="bg-background text-foreground">游客</Badge>
+      <Badge className="bg-background text-foreground">{t('guest')}</Badge>
       <div className="text-xs text-muted-foreground font-medium">
-        只能查看部分数据
+        {t('canOnlyViewPartialData')}
       </div>
     </div>
   );
@@ -36,6 +38,7 @@ const Desc = ({ session }: { session: Session | null }) => {
 
 export const Sidenav = async () => {
   const session = await auth();
+  const t = await getTranslations('admin');
   return (
     <aside className="w-16 lg:w-[256px] transition-all h-screen flex-col flex items-center justify-between py-12 bg-foreground">
       <div className="flex-col flex items-center w-full">
@@ -51,18 +54,18 @@ export const Sidenav = async () => {
         </h4>
         <Desc session={session} />
 
-        <div className="w-full flex-col flex items-center mt-8 space-y-4">
+        <div className="w-full flex-col items-center lg:items-start flex mt-8 space-y-4">
           <Sidebar />
         </div>
       </div>
-      <div className="mt-5 flex justify-center lg:grid w-full space-y-1">
+      <div className="mt-5 flex flex-col justify-center lg:grid w-full space-y-1">
         <SignOutButton />
         <Button
           asChild
           className="lg:!w-full text-primary-foreground bg-muted-foreground/10 hover:bg-muted-foreground/20"
         >
           <Link href={PATHS.SITE_HOME} target="_blank">
-            <span>去前台首页</span>
+            <span className="hidden lg:inline-block">{t('goToHomepage')}</span>
             <IconSolarArrowRightUpLinear />
           </Link>
         </Button>

@@ -1,5 +1,7 @@
 'use client';
 
+import { useTranslations } from 'next-intl';
+
 import {
   AlertDialog,
   AlertDialogAction,
@@ -19,6 +21,7 @@ import { cn } from '@/lib/utils';
 import { signoutAndRedirect } from '../actions/signout';
 
 export const SignOutButton = () => {
+  const t = useTranslations('admin');
   async function handleLogout() {
     await signoutAndRedirect();
   }
@@ -32,17 +35,19 @@ export const SignOutButton = () => {
           )}
         >
           <IconSolarLogout2 className="lg:mr-2 lg:text-2xl" />
-          <span className="hidden lg:inline-block">退出登录</span>
+          <span className="hidden lg:inline-block">{t('logout')}</span>
         </Button>
       </AlertDialogTrigger>
       <AlertDialogContent>
         <AlertDialogTrigger>
-          <AlertDialogTitle>温馨提示</AlertDialogTitle>
-          <AlertDialogDescription>确定要退出登录吗？</AlertDialogDescription>
+          <AlertDialogTitle>{t('tips')}</AlertDialogTitle>
+          <AlertDialogDescription>{t('confirmLogout')}</AlertDialogDescription>
         </AlertDialogTrigger>
         <AlertDialogFooter>
-          <AlertDialogCancel>取消</AlertDialogCancel>
-          <AlertDialogAction onClick={handleLogout}>确定</AlertDialogAction>
+          <AlertDialogCancel>{t('cancel')}</AlertDialogCancel>
+          <AlertDialogAction onClick={handleLogout}>
+            {t('confirm')}
+          </AlertDialogAction>
         </AlertDialogFooter>
       </AlertDialogContent>
     </AlertDialog>

@@ -39,17 +39,17 @@ export const PATHS_MAP: Record<string, string> = {
   [PATHS.SITEMAP]: 'Sitemap',
 
   /** ************* ADMIN ****************** */
-  [PATHS.ADMIN_HOME]: '首页',
-  [PATHS.ADMIN_STATISTIC]: '统计',
-  [PATHS.ADMIN_BLOG]: '博客',
-  [PATHS.ADMIN_BLOG_CREATE]: '创建博客',
-  [PATHS.ADMIN_BLOG_EDIT]: '编辑博客',
-  [PATHS.ADMIN_PROJECT]: '项目',
-  [PATHS.ADMIN_PROJECT_CREATE]: '创建项目',
-  [PATHS.ADMIN_PROJECT_EDIT]: '编辑项目',
-  [PATHS.ADMIN_TAG]: '标签',
-  [PATHS.ADMIN_NOTE]: '笔记',
+  [PATHS.ADMIN_HOME]: 'Home',
+  [PATHS.ADMIN_STATISTIC]: 'Statistic',
+  [PATHS.ADMIN_BLOG]: 'Blog',
+  [PATHS.ADMIN_BLOG_CREATE]: 'Blog Create',
+  [PATHS.ADMIN_BLOG_EDIT]: 'Blog Edit',
+  [PATHS.ADMIN_PROJECT]: 'Project',
+  [PATHS.ADMIN_PROJECT_CREATE]: 'Project Create',
+  [PATHS.ADMIN_PROJECT_EDIT]: 'Project Edit',
+  [PATHS.ADMIN_TAG]: 'Tag',
+  [PATHS.ADMIN_NOTE]: 'Note',
 
   /** ************* AUTH ****************** */
-  [PATHS.AUTH_SIGNIN]: '登录',
+  [PATHS.AUTH_SIGNIN]: 'Signin',
 };

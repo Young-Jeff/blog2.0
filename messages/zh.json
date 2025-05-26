@@ -45,5 +45,30 @@
     "title": "专业的 TypeScript 全栈开发者",
     "description": "专业的 TypeScript 全栈开发者，提供软件外包服务，包括响应式网站开发、Web3 DApp、Telegram Bot 和 Mini Apps 开发。承接各类软件开发项目，基于 React/Vue + Tailwind CSS 构建现代化响应式网站，使用 Next.js、Express、Nest.js 等技术栈，确保高质量交付。",
     "keywords": "TypeScript full-stack development, software outsourcing, project outsourcing, website development, responsive website, React development, Vue development, Tailwind CSS, Web3 development, TON development, Telegram Bot development, Telegram Mini Apps, TWA development, Next.js development, frontend development, full-stack development"
+  },
+  "admin": {
+    "Home": "首页",
+    "Statistic": "统计",
+    "Blog": "博客",
+    "Blog Create": "创建博客",
+    "Blog Edit": "编辑博客",
+    "Project": "项目",
+    "Project Create": "创建项目",
+    "Project Edit": "编辑项目",
+    "Tag": "标签",
+    "Note": "笔记",
+    "Signin": "登录",
+    "ManagementSystem": "管理系统",
+    "admin": "管理员",
+    "guest": "游客",
+    "canOnlyViewPartialData": "只能查看部分数据",
+    "hasAllPermissions": "拥有所有权限",
+    "goToHomepage": "去前台首页",
+    "logout": "退出登录",
+    "confirmLogout": "确定要退出登录吗？",
+    "cancel": "取消",
+    "confirm": "确定",
+    "tips": "温馨提示",
+    "underDevelopment": "开发中"
   }
 }
